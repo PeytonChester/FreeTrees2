@@ -1,21 +1,90 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-title><h1 class="logo">FreeTrees</h1></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">{{ folder }}</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
   <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-card *ngFor="let question of firebaseService.question | keyvalue">
+      <ion-card-header>
+        <div class="question">
+          <h3>{{ question.question }}</h3>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button color="secondary" expand="block" fill="outline">
+          <span class="ion-text-left">{{ question.answerA }}</span> 
+        </ion-button>
+        <ion-button color="secondary" expand="block" fill="outline">
+          <span class="ion-text-left">{{ question.answerB }}</span>
+        </ion-button>
+        <ion-button color="secondary" expand="block" fill="outline">
+          <span class="ion-text-left">{{ question.answerC }}</span>
+        </ion-button>
+        <ion-button color="secondary" expand="block" fill="outline">
+          <span class="ion-text-left">{{ question.answerD }}</span>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
   </div>
+
+  <div class="sub-container"> 
+    <div class="sub-container-callout" style="background-image: url('../../assets/poverty.jpg')">
+      <div class="overlay">
+        <h2>End <br> Poverty</h2>
+      </div>
+    </div>
+    <div class="sub-container-callout" style="background-image: url('../../assets/hunger.jpg')">
+      <div class="overlay">
+        <h2>End <br> Hunger</h2>
+      </div>
+    </div>
+    <div class="sub-container-callout" style="background-image: url('../../assets/deforestation.jpg')">
+      <div class="overlay">
+        <h2>End <br> Deforestation</h2>
+      </div>
+    </div>
+  </div>
+
+  <div id="about">
+    <div class="overlay">
+      <h1>About Us</h1>
+      <div class="about-row left">
+        <div class="about-text">
+          <h2>About FreeTrees</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae rem, unde magnam quibusdam dicta ab maiores possimus voluptas nobis ad nesciunt, nihil officiis soluta est omnis consequatur. Veniam, eius voluptate? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi maiores, minima dignissimos in harum fugiat natus velit aperiam illum culpa quos deleniti delectus reiciendis.</p>
+          <div class="ad">
+            <h3>Advertisement</h3>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="../../assets/pots.png" alt="pots">
+        </div>
+      </div>
+      <div class="about-row right">
+        <div class="about-text">
+          <h2>About Trees for the Futue</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quam laudantium natus nesciunt nisi eos officia repellat corrupti hic esse assumenda maiores soluta dolores perspiciatis ea, sapiente tenetur maxime consectetur! Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nihil nemo in rerum doloribus nostrum quis blanditiis ipsam.
+          </p>
+          <div class="ad">
+            <h3>Advertisement</h3>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="../../assets/community.png" alt="community">
+        </div>
+      </div>
+    </div>
+  </div>
+
 </ion-content>
